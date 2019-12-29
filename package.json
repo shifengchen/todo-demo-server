@@ -1,0 +1,9 @@
+{
+  "name": "todo-demo-server",
+  "version": "1.0.0",
+  "description": "node, graphql, prisma",
+  "main": "index.js",
+  "repository": "https://github.com/shifengchen/todo-demo-server.git",
+  "author": "ShifengChen <shifengchen10@gmail.com>",
+  "license": "GNU GENERAL PUBLIC LICENSE"
+}
