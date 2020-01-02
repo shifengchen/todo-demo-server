@@ -5,5 +5,11 @@
   "main": "index.js",
   "repository": "https://github.com/shifengchen/todo-demo-server.git",
   "author": "ShifengChen <shifengchen10@gmail.com>",
-  "license": "GNU GENERAL PUBLIC LICENSE"
+  "license": "GNU GENERAL PUBLIC LICENSE",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  }
 }
