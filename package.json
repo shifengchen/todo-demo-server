@@ -7,9 +7,10 @@
   "author": "ShifengChen <shifengchen10@gmail.com>",
   "license": "GNU GENERAL PUBLIC LICENSE",
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "dependencies": {
-    "graphql-yoga": "^1.18.3"
+    "graphql-yoga": "^1.18.3",
+    "moment": "^2.24.0"
   }
 }

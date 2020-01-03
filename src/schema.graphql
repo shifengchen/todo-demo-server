@@ -1,0 +1,16 @@
+type Query {
+  list: [Todo!]!
+}
+
+type Mutation {
+  create(info: String!, deadline: String!, level: Int): Todo!
+}
+
+type Todo {
+  id: ID!
+  info: String!
+  deadline: String!
+  level: Int!
+  done: Boolean!
+  createAt: String
+}
