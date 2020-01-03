@@ -1,14 +1,32 @@
 const { GraphQLServer } = require("graphql-yoga");
 
+let list =[{
+  id: 'id-0',
+  info: 'learn graphql',
+  deadline: '2020-01-05',
+  level: 3,
+  done: false,
+  createAt: '2020-01-03'
+}]
+
 const typeDefs = `
   type Query {
+    list: [Todo!]!
+  }
+
+  type Todo {
+    id: ID!
     info: String!
+    deadline: String!
+    level: Int!
+    done: Boolean!
+    createAt: String
   }
 `;
 
 const resolvers = {
   Query: {
-    info: () => `This is the API of TODO`
+    list: () => list
   }
 };
 
