@@ -1,0 +1,9 @@
+type Todo {
+  id: ID! @id
+  info: String!
+  deadline: DateTime!
+  level: Int! @default(value: 0)
+  done: Boolean! @default(value: false)
+  createAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
