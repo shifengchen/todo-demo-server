@@ -6,4 +6,12 @@ type Todo {
   done: Boolean! @default(value: false)
   createAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+  createBy: User
+}
+
+type User {
+  id: ID! @id
+  name: String! @unique
+  password: String!
+  list: [Todo!]!
 }

@@ -4,6 +4,8 @@ type Query {
 
 type Mutation {
   create(info: String!, deadline: String!, level: Int): Todo!
+  signup(name: String!, password: String!): AuthPayload
+  login(name: String!, password: String!): AuthPayload
 }
 
 type Todo {
@@ -13,4 +15,16 @@ type Todo {
   level: Int!
   done: Boolean!
   createAt: String
+  createBy: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  list: [Todo!]!
+}
+
+type AuthPayload {
+  token: String
+  user: User
 }
