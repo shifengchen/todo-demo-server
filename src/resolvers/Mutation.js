@@ -1,11 +1,10 @@
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { APP_SECRET, getUserId } = require("../utils");
+const { getUserId, hash, compare, sign, verify } = require("../utils");
 
 async function signup(root, args, context, info) {
-  const password = await bcrypt.hash(args.password, 10);
+  const password = await hash(args.password);
   const user = await context.prisma.createUser({ ...args, password });
-  const token = jwt.sign({ userId: user.id }, APP_SECRET);
+  const token = sign(user.id);
 
   return {
     token,
@@ -19,12 +18,12 @@ async function login(root, args, context, info) {
     throw new Error("No such user found");
   }
 
-  const valid = await bcrypt.compare(args.password, user.password);
+  const valid = compare(args.password, user.password);
   if (!valid) {
     throw new Error("Invalid password");
   }
 
-  const token = jwt.sign({ userId: user.id }, APP_SECRET);
+  const token = sign(user.id);
 
   return {
     token,
@@ -33,13 +32,20 @@ async function login(root, args, context, info) {
 }
 
 function create(root, args, context, info) {
-  const userId = getUserId(context);
+  // const userId = getUserId(context);
   return context.prisma.createTodo({
     info: args.info,
     deadline: args.deadline,
     level: args.level,
-    createBy: { connect: { id: userId } }
+    // createBy: { connect: { id: userId } }
   });
+}
+
+function updateTodo(root, args, context, info) {
+  return context.prisma.updateTodo({
+    where: { id: args.id },
+    data: { info: args.info, deadline: args.deadline, level: args.level }
+  })
 }
 
 module.exports = {

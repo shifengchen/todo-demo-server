@@ -6,6 +6,7 @@ type Mutation {
   create(info: String!, deadline: String!, level: Int): Todo!
   signup(name: String!, password: String!): AuthPayload
   login(name: String!, password: String!): AuthPayload
+  updateTodo(id: String!, info: String!, deadline: String!, level: Int): Todo
 }
 
 type Todo {

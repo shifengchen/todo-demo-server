@@ -1,4 +1,5 @@
-endpoint: http://localhost:4466
+# endpoint: http://localhost:4466
+endpoint: https://eu1.prisma.sh/shifeng-chen-b2af9b/todo-demo-server/dev
 
 datamodel: datamodel.prisma
 
