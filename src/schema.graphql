@@ -1,4 +1,5 @@
 type Query {
+  todo(id: String!): Todo
   list: [Todo!]!
 }
 
@@ -6,7 +7,8 @@ type Mutation {
   create(info: String!, deadline: String!, level: Int): Todo!
   signup(name: String!, password: String!): AuthPayload
   login(name: String!, password: String!): AuthPayload
-  updateTodo(id: String!, info: String!, deadline: String!, level: Int): Todo
+  updateTodo(id: String!, info: String!, deadline: String!, level: Int): Todo!
+  deleteTodo(id: String!): Todo
 }
 
 type Todo {

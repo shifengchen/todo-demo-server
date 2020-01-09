@@ -49,8 +49,14 @@ function updateTodo(root, args, context, info) {
   })
 }
 
+function deleteTodo(root, args, context, info) {
+  return context.prisma.deleteTodo({ id: args.id })
+}
+
 module.exports = {
   signup,
   login,
-  create
+  create,
+  updateTodo,
+  deleteTodo,
 };
