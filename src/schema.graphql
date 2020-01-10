@@ -14,7 +14,7 @@ type Mutation {
 type Todo {
   id: ID!
   info: String!
-  deadline: String!
+  deadline: String
   level: Int!
   done: Boolean!
   createAt: String

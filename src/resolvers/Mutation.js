@@ -33,12 +33,12 @@ async function login(root, args, context, info) {
 }
 
 function create(root, args, context, info) {
-  // const userId = getUserId(context);
+  const userId = getUserId(context);
   return context.prisma.createTodo({
     info: args.info,
     deadline: args.deadline,
     level: args.level,
-    // createBy: { connect: { id: userId } }
+    createBy: { connect: { id: userId } }
   });
 }
 
