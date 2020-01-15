@@ -12,6 +12,10 @@ type Mutation {
   deleteTodo(id: String!): Todo
 }
 
+type Subscription {
+  newTodo: Todo
+}
+
 type Todo {
   id: ID!
   info: String!
