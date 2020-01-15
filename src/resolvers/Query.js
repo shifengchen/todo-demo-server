@@ -15,7 +15,13 @@ function list(root, args, context, info) {
   });
 }
 
+function user(root, args, context, info) {
+  const userId = getUserId(context)
+  return context.prisma.user({ id: userId })
+}
+
 module.exports = {
   list,
-  todo
+  todo,
+  user
 };

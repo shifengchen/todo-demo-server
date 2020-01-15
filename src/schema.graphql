@@ -1,6 +1,7 @@
 type Query {
   todo(id: String!): Todo
   list: [Todo!]!
+  user: User
 }
 
 type Mutation {
