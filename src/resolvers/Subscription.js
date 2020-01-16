@@ -1,5 +1,7 @@
 function newTodoSubscribe(root, args, context, info) {
-  return context.prisma.$subscribe.todo({ mutation_in: ['CREATED'] }).node()
+  return context.prisma.$subscribe.todo({
+    mutation_in: ['CREATED', 'UPDATED', 'DELETED']
+  }).node()
 }
 
 const newTodo = {
